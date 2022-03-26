@@ -5,7 +5,7 @@ import { FaChartBar } from 'react-icons/fa'
 
 const Header = () => {
     return (
-        <AppBar color='transparent'
+        <AppBar color={'primary'}
             position='static'
             title="Navbar"
         >

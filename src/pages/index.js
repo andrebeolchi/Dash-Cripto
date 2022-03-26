@@ -1,9 +1,10 @@
 import React from 'react'
+import HeroSection from '../components/heroSection/HeroSection'
 
 const Index = () => {
   return (
     <div>
-        Home
+        <HeroSection/>
     </div>
   )
 }
