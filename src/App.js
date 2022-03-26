@@ -1,14 +1,10 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 import './normalize.css'
+import Rotas from './routes/Routes'
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <div>
-        <Header />
-      </div>
-    </BrowserRouter>
+    <Rotas />
   )
 }
 
