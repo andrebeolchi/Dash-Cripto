@@ -1,14 +1,21 @@
+import { ThemeProvider } from '@mui/material'
+import axios from 'axios'
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 import './normalize.css'
+import Rotas from './routes/Routes'
+import { theme } from './utils/Theme'
 
 const App = () => {
+
+
+  axios.defaults.baseURL = 'https://min-api.cryptocompare.com/';
+  axios.defaults.headers.common['Authorization'] = `Apikey ${process.env.REACT_API_KEY}`;
+  axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
   return (
-    <BrowserRouter>
-      <div>
-        <Header />
-      </div>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <Rotas />
+    </ThemeProvider>
   )
 }
 
