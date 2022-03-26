@@ -1,19 +1,14 @@
 import { createTheme } from '@mui/material';
-import { blue, grey } from '@mui/material/colors';
+import { blue } from '@mui/material/colors';
 
 export const theme = createTheme({
-    overrides: {
-        MuiButton: {
-            label: {
-                textTransform: 'capitalize'
-            }
-        },
-        MuiPaper: {
-            elevation24: {
-                boxShadow: '0px 0px 1px 0px'
-            }
-        }
-    },
+    typography: {
+        fontFamily: `"MontSerrat", "sans-serif"`,
+        fontWeightLight: 300,
+        fontWeightRegular: 500,
+        fontWeightMedium: 700,
+        fontWeightBold: 900,
+       },
     palette: {
         mode: 'dark',
         primary: {
@@ -25,7 +20,7 @@ export const theme = createTheme({
             contrastText: '#FFF'
         },
         background: {
-            main: grey[500],
+            main: "#000",
             contrastText: '#FFF'
         }
     },

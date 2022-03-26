@@ -1,8 +1,7 @@
 import axios from "axios";
 
 export default class Api {
-    constructor() { }
-
+    
     /**
      * Essa função é chamada para pegar o ranking de criptomoedas
      */

@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@mui/material'
 import axios from 'axios'
 import React from 'react'
+import './App.css'
 import './normalize.css'
 import Rotas from './routes/Routes'
 import { theme } from './utils/Theme'
