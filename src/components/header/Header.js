@@ -1,5 +1,7 @@
+import { blue } from '@material-ui/core/colors'
 import { AppBar, Container, Toolbar, Typography } from '@mui/material'
 import React from 'react'
+import { FaChartBar } from 'react-icons/fa'
 
 const Header = () => {
     return (
@@ -8,10 +10,11 @@ const Header = () => {
             title="Navbar"
         >
             <Container>
-                <Toolbar>
-                    <Typography variant='span' color='secondary' fontSize={20}>
+                <Toolbar flex flexDirection={'row'} alignItems={'center'} justifyItems={'center'}>
+                    <FaChartBar size={24} color={blue[600]} />
+                    <Typography marginLeft={1} variant='span' color='primary' fontSize={20} >
                         Crypto
-                        <Typography variant="span" color='primary'>
+                        <Typography variant="span" color='secondary'>
                             Dash
                         </Typography>
                     </Typography>
