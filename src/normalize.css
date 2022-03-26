@@ -3,6 +3,14 @@
 /* Document
    ========================================================================== */
 
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -23,7 +31,6 @@
   body {
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
   }
   
   /**

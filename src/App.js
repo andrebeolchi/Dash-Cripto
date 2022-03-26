@@ -1,9 +1,14 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import './normalize.css'
 
 const App = () => {
   return (
-    <div>App</div>
+    <BrowserRouter>
+      <div>
+        <Header />
+      </div>
+    </BrowserRouter>
   )
 }
 
