@@ -86,7 +86,7 @@ const Chart = () => {
                                 }),
                                 datasets: [{
                                     data: historicalData?.map((coin) => NumberUtils.calculateProfit({ sellValue: coin?.close, boughtPrice, boughtAmount })),
-                                    label: `Rendimento em (${days} dias) do ${selectedCoin?.CoinInfo?.FullName}`,
+                                    label: `(${days} dias) Rendimento do ${selectedCoin?.CoinInfo?.FullName}`,
 
                                     backgroundColor: historicalData?.map((coin) => NumberUtils.calculateProfit({ sellValue: coin?.close, boughtPrice, boughtAmount }) > 0 ? '#00ff00' : '#ff0000'),
                                     borderColor: historicalData?.map((coin) => NumberUtils.calculateProfit({ sellValue: coin?.close, boughtPrice, boughtAmount }) > 0 ? '#00ff00' : '#ff0000'),
