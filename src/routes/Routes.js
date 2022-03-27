@@ -1,7 +1,6 @@
 
 import { makeStyles } from '@mui/styles'
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
 import Header from '../components/header/Header'
 import Index from '../pages'
 import { theme } from '../utils/Theme'
@@ -21,9 +20,7 @@ const Rotas = () => {
     return (
         <div className={classes.App}>
             <Header />
-            <Routes>
-                <Route path="/" element={<Index />} />
-            </Routes>
+            <Index />
         </div>
     )
 }
