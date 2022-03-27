@@ -1,8 +1,9 @@
 
 import { makeStyles } from '@mui/styles'
 import React from 'react'
+import Chart from '../components/chart/Chart'
 import Header from '../components/header/Header'
-import Index from '../pages'
+import HeroSection from '../components/heroSection/HeroSection'
 import { theme } from '../utils/Theme'
 
 const Rotas = () => {
@@ -20,7 +21,8 @@ const Rotas = () => {
     return (
         <div className={classes.App}>
             <Header />
-            <Index />
+            <HeroSection />
+            <Chart />
         </div>
     )
 }
