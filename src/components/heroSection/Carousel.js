@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
         height: '50%',
         display: 'flex',
         alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        userSelect: "none"
     },
     item: {
         display: 'flex',
@@ -19,6 +22,12 @@ const useStyles = makeStyles((theme) => ({
         cursor: 'pointer',
         textTransform: 'uppercase',
         color: '#fff',
+        "&:active": {
+            cursor: 'move',
+            cursor: 'grab',
+            cursor: '-webkit-grab',
+        },
+        userSelect: "none"
     }
 }))
 
@@ -83,7 +92,7 @@ const Carousel = () => {
     return (
         <div className={classes.carousel}>
             {loading ? (
-                <div 
+                <div
                     style={{
                         width: '100%',
                         display: 'flex',
