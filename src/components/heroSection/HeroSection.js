@@ -62,7 +62,6 @@ const HeroSection = () => {
                     </Typography>
                 </div>
                 <Carousel />
-                
             </Container>
         </div>
 
