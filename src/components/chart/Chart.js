@@ -1,4 +1,3 @@
-import { CircularProgress } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Chart as ChJs, registerables } from 'chart.js';
 import { React, useEffect, useState } from 'react';
@@ -43,13 +42,13 @@ const Chart = () => {
     const [historicalData, setHistoricalData] = useState(null);
     const [days, setDays] = useState(365);
 
-    const { selectedCoin, boughtAmount, boughtPrice } = CoinState()
+    const { selectedCoin, boughtAmount, boughtPrice, currency } = CoinState()
 
     const getHistoricalData = async () => {
         try {
             const { data } = await new Api().getHistoricalData({
                 fsym: selectedCoin?.RAW?.BRL?.FROMSYMBOL,
-                tsym: 'BRL',
+                tsym: currency,
                 limit: days,
             });
             setHistoricalData(data.Data);
@@ -59,9 +58,7 @@ const Chart = () => {
     }
 
     useEffect(() => {
-        if (selectedCoin &&
-            boughtPrice &&
-            boughtAmount) {
+        if (boughtPrice) {
             getHistoricalData();
         }
     }, [days, boughtPrice])
