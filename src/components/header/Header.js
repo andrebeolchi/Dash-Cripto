@@ -10,7 +10,7 @@ const Header = () => {
                 title="Navbar"
         >
             <Container>
-                <Toolbar flex flexDirection={'row'} alignItems={'center'} justifyItems={'center'}>
+                <Toolbar>
                     <FaChartBar size={24} color={blue[600]} />
                     <Typography marginLeft={1} variant='span' color='primary' fontSize={20} style={{ userSelect: "none" }} >
                         Crypto
