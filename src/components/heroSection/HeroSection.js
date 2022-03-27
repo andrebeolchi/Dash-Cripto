@@ -13,8 +13,9 @@ const HeroSection = () => {
             height: 400,
             display: 'flex',
             flexDirection: 'column',
-            paddingTop: 100,
+            paddingTop: 25,
             justifyContent: 'space-around',
+            userSelect: "none",
         },
         title: {
             display: 'flex',
@@ -22,7 +23,8 @@ const HeroSection = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             textAlign: 'center',
-            marginBottom: 20,
+            // marginBottom: 20,
+            userSelect: "none",
         }
     }))
 
@@ -35,12 +37,14 @@ const HeroSection = () => {
                     <Typography
                         variant='h2'
                         color='primary'
-                        fontWeight='bold'
-                        marginBottom={1}
+                        style={{ 
+                            fontWeight: 'bold',
+                            marginBottom: 15,
+                        }}
                     >
                         Crypto
                         <Typography
-                            variant='span'
+                            variant='string'
                             color='secondary'
                             fontWeight={'regular'}
                         >
@@ -51,6 +55,7 @@ const HeroSection = () => {
                         variant='subtitle2'
                         fontWeight='light'
                         textTransform={'capitalize'}
+                        fontSize={16}
                     >
                         A melhor forma de gerenciar suas cryptos
                     </Typography>

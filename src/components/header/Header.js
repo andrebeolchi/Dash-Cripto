@@ -5,14 +5,14 @@ import { FaChartBar } from 'react-icons/fa'
 
 const Header = () => {
     return (
-        <AppBar color={'primary'}
-            position='static'
-            title="Navbar"
+        <AppBar color='primary'
+                position='sticky'
+                title="Navbar"
         >
             <Container>
-                <Toolbar flex flexDirection={'row'} alignItems={'center'} justifyItems={'center'}>
+                <Toolbar>
                     <FaChartBar size={24} color={blue[600]} />
-                    <Typography marginLeft={1} variant='span' color='primary' fontSize={20} >
+                    <Typography marginLeft={1} variant='span' color='primary' fontSize={20} style={{ userSelect: "none" }} >
                         Crypto
                         <Typography variant="span" color='secondary'>
                             Dash

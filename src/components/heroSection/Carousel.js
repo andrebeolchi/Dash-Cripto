@@ -1,9 +1,12 @@
+import { Button } from '@material-ui/core';
 import { Skeleton } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { useEffect, useState } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import Api from '../../api/Api';
+import { CoinState } from '../../context/CoinContext';
 import NumberUtils from '../../utils/NumberUtils';
+import InvestmentModal from './InvestmentModal';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +29,7 @@ const Carousel = () => {
 
     const [top, setTop] = useState([]);
     const [loading, setLoading] = useState(true)
+    const [modalOpen, setModalOpen] = useState(false)
 
     const classes = useStyles();
 
@@ -42,35 +46,44 @@ const Carousel = () => {
         getTopCrypto();
     }, [])
 
+    const { setSelectedCoin, selectedCoin } = CoinState();
 
     const items = top?.map((coin) => {
         let profit = coin.RAW?.BRL?.CHANGEPCT24HOUR >= 0
         return (
-            <div className={classes.item}
+            <Button
+                onClick={() => {
+                    setSelectedCoin(coin)
+                    setModalOpen(true)
+                }}
             >
-                <img src={`https://www.cryptocompare.com/${coin.CoinInfo?.ImageUrl}`}
-                    alt={coin.CoinInfo?.CoinName}
-                    height="80"
-                    style={{ marginBottom: 10 }}
-                />
-                <span>
-                    {coin.CoinInfo?.Name}
-                    &nbsp;
-                    <span
-                        style={{
-                            color: profit ? '#11aa11' : '#aa1111',
-                            fontWeight: 'bold',
-                        }}
-                    >
-                        {profit && "+"}{coin?.RAW?.BRL?.CHANGEPCT24HOUR?.toFixed(2)}%
-                    </span>
-                </span>
-                <span
-                    style={{ marginTop: 2 }}
+                <div className={classes.item}
                 >
-                    {coin.DISPLAY?.BRL?.TOSYMBOL} {NumberUtils.formatRawMoney(coin.RAW?.BRL?.PRICE)}
-                </span>
-            </div>
+                    <img src={`https://www.cryptocompare.com/${coin.CoinInfo?.ImageUrl}`}
+                        alt={coin.CoinInfo?.CoinName}
+                        height="80"
+                        style={{ marginBottom: 10 }}
+                    />
+                    <span>
+                        {coin.CoinInfo?.Name}
+                        &nbsp;
+                        <span
+                            style={{
+                                color: profit ? '#11aa11' : '#aa1111',
+                                fontWeight: 'bold',
+                            }}
+                        >
+                            {profit && "+"}{coin?.RAW?.BRL?.CHANGEPCT24HOUR?.toFixed(2)}%
+                        </span>
+                    </span>
+                    <span
+                        style={{ marginTop: 2 }}
+                    >
+                        {coin.DISPLAY?.BRL?.TOSYMBOL} {NumberUtils.formatRawMoney(coin.RAW?.BRL?.PRICE)}
+                    </span>
+
+                </div>
+            </Button>
         )
     })
 
@@ -83,7 +96,7 @@ const Carousel = () => {
     return (
         <div className={classes.carousel}>
             {loading ? (
-                <div 
+                <div
                     style={{
                         width: '100%',
                         display: 'flex',
@@ -91,7 +104,6 @@ const Carousel = () => {
                         justifyContent: 'space-around',
                     }}
                 >
-                    <Skeleton width={"80px"} height={"80px"} variant="rectangular" />
                     <Skeleton width={"80px"} height={"80px"} variant="rectangular" />
                     <Skeleton width={"80px"} height={"80px"} variant="rectangular" />
                     <Skeleton width={"80px"} height={"80px"} variant="rectangular" />
@@ -114,6 +126,13 @@ const Carousel = () => {
                     items={items}
                 />
             )}
+
+            <InvestmentModal
+                open={modalOpen}
+                setOpen={setModalOpen}
+                title={`Investimento ${selectedCoin?.CoinInfo?.FullName}`}
+                key={selectedCoin?.CoinInfo?.Name}
+            />
         </div>
     )
 }
