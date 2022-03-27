@@ -6,6 +6,7 @@ import AliceCarousel from 'react-alice-carousel';
 import Api from '../../api/Api';
 import { CoinState } from '../../context/CoinContext';
 import NumberUtils from '../../utils/NumberUtils';
+import InvestmentModal from './InvestmentModal';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +29,7 @@ const Carousel = () => {
 
     const [top, setTop] = useState([]);
     const [loading, setLoading] = useState(true)
+    const [modalOpen, setModalOpen] = useState(false)
 
     const classes = useStyles();
 
@@ -44,13 +46,16 @@ const Carousel = () => {
         getTopCrypto();
     }, [])
 
-    const { setSelectedCoin } = CoinState();
+    const { setSelectedCoin, selectedCoin } = CoinState();
 
     const items = top?.map((coin) => {
         let profit = coin.RAW?.BRL?.CHANGEPCT24HOUR >= 0
         return (
-            <Button 
-                onClick={() => setSelectedCoin(coin)}
+            <Button
+                onClick={() => {
+                    setSelectedCoin(coin)
+                    setModalOpen(true)
+                }}
             >
                 <div className={classes.item}
                 >
@@ -121,6 +126,13 @@ const Carousel = () => {
                     items={items}
                 />
             )}
+
+            <InvestmentModal
+                open={modalOpen}
+                setOpen={setModalOpen}
+                title={`Investimento ${selectedCoin?.CoinInfo?.FullName}`}
+                key={selectedCoin?.CoinInfo?.Name}
+            />
         </div>
     )
 }

@@ -28,4 +28,10 @@ export default class Api {
 
         return axios.get(url)
     }
+
+    getInitialPrice({ fsym, tsym, date }){
+        let url = `data/pricehistorical?fsym=${fsym}&tsyms=${tsym}&ts=${date}`
+
+        return axios.get(url)
+    }
 }
