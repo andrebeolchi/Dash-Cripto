@@ -1,6 +1,6 @@
 import { Button } from '@material-ui/core';
 import { Skeleton } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import Api from '../../api/Api';

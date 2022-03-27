@@ -1,5 +1,5 @@
 
-import { makeStyles } from '@mui/styles'
+import { makeStyles } from '@mui/material/styles'
 import React from 'react'
 import Chart from '../components/chart/Chart'
 import Header from '../components/header/Header'

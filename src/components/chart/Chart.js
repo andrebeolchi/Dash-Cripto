@@ -1,4 +1,4 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from '@mui/material/styles';
 import { Chart as ChJs, registerables } from 'chart.js';
 import { React, useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';

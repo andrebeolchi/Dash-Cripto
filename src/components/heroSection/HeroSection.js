@@ -1,5 +1,5 @@
 import { Container, Typography } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from '@mui/material/styles';
 import background from '../../assets/background.png';
 import Carousel from './Carousel';
 
