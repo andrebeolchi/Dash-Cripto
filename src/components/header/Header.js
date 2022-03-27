@@ -1,5 +1,5 @@
-import { blue } from '@material-ui/core/colors'
 import { AppBar, Container, Toolbar, Typography } from '@mui/material'
+import { blue } from '@mui/material/colors'
 import React from 'react'
 import { FaChartBar } from 'react-icons/fa'
 

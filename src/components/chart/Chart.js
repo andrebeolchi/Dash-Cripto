@@ -1,4 +1,5 @@
-import { makeStyles } from '@mui/material/styles';
+import { Button } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { Chart as ChJs, registerables } from 'chart.js';
 import { React, useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
@@ -6,7 +7,6 @@ import Api from '../../api/Api';
 import { CoinState } from '../../context/CoinContext';
 import NumberUtils from '../../utils/NumberUtils';
 import { theme } from '../../utils/Theme';
-import { Button } from '@mui/material';
 ChJs.register(...registerables);
 
 const useStyles = makeStyles({

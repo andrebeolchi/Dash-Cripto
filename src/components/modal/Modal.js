@@ -1,13 +1,6 @@
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Slide from '@material-ui/core/Slide';
-import withStyles from '@material-ui/core/styles/withStyles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { Typography } from '@mui/material';
-import clsx from 'clsx';
+
+import { Dialog, DialogContent, DialogTitle, Divider, IconButton, Slide, Typography, useMediaQuery } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React, { forwardRef, memo } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { theme } from '../../utils/Theme';
@@ -17,7 +10,7 @@ const Transition = forwardRef((props, ref) => {
 });
 
 
-const styles = () => ({
+const useStyles = makeStyles({
     dialog: {
         display: 'flex',
         justifyContent: 'space-between',
@@ -30,13 +23,14 @@ const CustomDialog = memo(
         title,
         open,
         setOpen,
-        classes,
         width,
         children,
         height = 'auto',
         backdropclick = false
     }) => {
         const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
+        const classes = useStyles()
 
         return (
             <Dialog
@@ -50,12 +44,12 @@ const CustomDialog = memo(
                 }}
             >
                 <DialogTitle
-                    disableTypography
                     style={{ background: theme.palette.secondary.main, userSelect: "none" }}
-                    className={clsx(classes.dialog)}
+                    className={classes.dialog}
                 >
-                    <Typography variant="h6"
+                    <Typography
                         fontWeight="medium"
+                        fontSize={20}
                         color={theme.palette.background.main}
                     >
                         {title}
@@ -65,10 +59,12 @@ const CustomDialog = memo(
                     </IconButton>
                 </DialogTitle>
                 <Divider />
-                <DialogContent style={{padding: 20}}>{children}</DialogContent>
+                <DialogContent style={{ padding: 20 }}>
+                    {children}
+                </DialogContent>
             </Dialog>
         );
     }
 );
 
-export default withStyles(styles)(CustomDialog);
+export default CustomDialog;
